@@ -14,10 +14,11 @@ public class TableResults {
         List<User> users = new ArrayList<>();
         users = userDao.getAll();
         StringBuilder output;
-        output = new StringBuilder("<html><h1>Results<br>");
+        output = new StringBuilder("<html><h1>Results<br><table><tr><th>first name</th><th>last name</th></tr>");
         for (User user : users) {
-            output.append(user.getFirstName()).append(" ").append(user.getLastName()).append("<br>");
+            output.append("<tr><td>").append(user.getFirstName()).append("</td><td>").append(user.getLastName()).append("</td></tr>");
         }
+        output.append("</table></h1></html>");
         return Response.status(200).entity(output.toString()).build();
     }
 }
